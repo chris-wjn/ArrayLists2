@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=BigInts
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=a\ b
+comment2.target=java.util.ArrayList\ makeSame(java.util.ArrayList,\ java.util.ArrayList)
+comment3.params=a\ b
+comment3.target=java.util.ArrayList\ add(java.util.ArrayList,\ java.util.ArrayList)
+numComments=4
