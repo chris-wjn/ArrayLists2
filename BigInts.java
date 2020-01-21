@@ -26,20 +26,34 @@ public class BigInts {
         }
         return a;
     }
-    public static ArrayList<Integer> add (ArrayList<Integer> a, ArrayList<Integer> b) {
-        ArrayList<Integer> returnList = new ArrayList<Integer>();
-        int remainder = 0, number = 0, oldRemainder = 0;
-        for (int i = 0; i < a.size(); i++) {
-            if ((a.get(i) + b.get(i)) > 9) {
-                remainder = (a.get(i) + b.get(i)) - 10;
-                number = (a.get(i) + b.get(i)) - remainder + oldRemainder - 9;
-                returnList.add(i, number);
-                oldRemainder = remainder;
-                i++;
+    public static ArrayList<Integer> add (ArrayList<Integer> list1, ArrayList<Integer> list2){
+        ArrayList<Integer> newList = new ArrayList<Integer>();
+        int number = 0, remainder = 0;
+        int l1= list1.size()-1;
+        int l2= list2.size()-1;
+        newList.add(0);
+
+        for(int i=0; i<list1.size(); i++){
+            remainder = 0;
+            number = list1.get((list1.size()-1)-i) + list2.get((list2.size()-1)-i);
+            if(number >= 10){
+                remainder=1;
+                number -= 10;
+            } else{
+                remainder=0;
             }
-            returnList.add(i, (a.get(i) + b.get(i)));
+
+            if(newList.get(0) != -1){
+                newList.add(0, number);
+            } else if(newList.get(0) == -1){
+                newList.set(0, number+1);
+            }
+
+            if(remainder == 1) newList.add(0, -1);
+
         }
-        returnList.add(oldRemainder);
-        return returnList;
+        if(newList.get(0) == -1) newList.set(0, 1);
+        newList.remove(newList.size()-1);
+        return newList;
     }
 }
