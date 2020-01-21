@@ -26,33 +26,27 @@ public class BigInts {
         }
         return a;
     }
-    public static ArrayList<Integer> add (ArrayList<Integer> list1, ArrayList<Integer> list2){
+    public static ArrayList<Integer> add (ArrayList<Integer> list1, ArrayList<Integer> list2) {
         ArrayList<Integer> newList = new ArrayList<Integer>();
         int number = 0, remainder = 0;
-        int l1= list1.size()-1;
-        int l2= list2.size()-1;
         newList.add(0);
-
-        for(int i=0; i<list1.size(); i++){
+        for (int i=0; i<list1.size(); i++) {
             remainder = 0;
             number = list1.get((list1.size()-1)-i) + list2.get((list2.size()-1)-i);
-            if(number >= 10){
-                remainder=1;
+            if (number >= 10) {
+                remainder = 1;
                 number -= 10;
-            } else{
+            } else {
                 remainder=0;
             }
-
-            if(newList.get(0) != -1){
+            if (newList.get(0) != -1) {
                 newList.add(0, number);
-            } else if(newList.get(0) == -1){
+            } else if (newList.get(0) == -1) {
                 newList.set(0, number+1);
             }
-
-            if(remainder == 1) newList.add(0, -1);
-
+            if (remainder == 1) newList.add(0, -1);
         }
-        if(newList.get(0) == -1) newList.set(0, 1);
+        if (newList.get(0) == -1) newList.set(0, 1);
         newList.remove(newList.size()-1);
         return newList;
     }
